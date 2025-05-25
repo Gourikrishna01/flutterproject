@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project/pages/About.dart';
 import 'package:project/pages/Edit_Profile.dart';
 
 class Profile extends StatefulWidget {
@@ -16,8 +17,7 @@ class _ProfileState extends State<Profile> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(
             children: [
               Padding(
                 padding: const EdgeInsets.all(30),
@@ -128,17 +128,66 @@ class _ProfileState extends State<Profile> {
                   ],
                 ),
               ),
-              // Fills remaining screen space
-              Expanded(
-                child: Container(
-                  width: double.infinity,
-                  color: Colors.grey.shade300,
-                  child: const Center(
-                    child: Text(
-                      'Hello',
-                      style: TextStyle(color: Colors.black87, fontSize: 20),
+              const SizedBox(height: 20),
+              Container(
+                width: double.infinity,
+                color: Colors.grey.shade300,
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: const Icon(
+                        Icons.help_outline,
+                        color: Colors.black,
+                      ),
+                      title: const Text("FAQs"),
+                      tileColor: Colors.white30,
+                    ),
+                    ListTile(
+                      leading: const Icon(
+                        Icons.privacy_tip_outlined,
+                        color: Colors.black,
+                      ),
+                      title: const Text("Privacy Policy"),
+                      tileColor: Colors.white30,
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AboutPage()),
+                        );
+                      },
+                      leading: const Icon(
+                        Icons.info_outline,
+                        color: Colors.black,
+                      ),
+                      title: const Text("About Us"),
+                      tileColor: Colors.white30,
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    side: const BorderSide(
+                      color: Colors.black,
+                      width: 2,
+                    ), // black border
+                    backgroundColor:
+                        Colors.white, // optional: make background white
+                    foregroundColor: Colors.black, // optional: text/icon color
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 12,
                     ),
                   ),
+                  child: const Text("Logout"),
                 ),
               ),
             ],

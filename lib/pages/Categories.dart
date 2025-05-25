@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project/pages/Details.dart';
 import 'package:project/pages/Home.dart'; // Make sure this exists
 
 class Categories extends StatefulWidget {
@@ -64,7 +65,7 @@ class _CategoriesState extends State<Categories> {
 
         switch (label) {
           case "Category":
-            targetPage = const Categories();
+            targetPage = const Details();
             break;
           case "Women":
           case "Men":
