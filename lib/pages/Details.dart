@@ -72,11 +72,11 @@ class _DetailsState extends State<Details> {
                         top: Radius.circular(12),
                       ),
                       child: AspectRatio(
-                        aspectRatio: 1, // Ensures a square image container
+                        aspectRatio: 1,
                         child: Image.network(
                           item['image']!,
                           width: double.infinity,
-                          fit: BoxFit.contain, // Shows full image
+                          fit: BoxFit.contain,
                         ),
                       ),
                     ),
