@@ -17,7 +17,7 @@ class _Product1State extends State<Product1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Product Carousel')),
+    
       body: Center(
         child: CarouselSlider(
           options: CarouselOptions(

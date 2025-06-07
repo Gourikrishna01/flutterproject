@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/pages/FirstPage.dart';
+import 'package:project/pages/Login.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -61,9 +62,7 @@ class _HomeState extends State<Home> {
                     onTap: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => const Firstpage(),
-                        ),
+                        MaterialPageRoute(builder: (context) => const Login()),
                       );
                     },
                     borderRadius: BorderRadius.circular(40),
