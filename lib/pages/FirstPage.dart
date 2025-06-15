@@ -20,23 +20,44 @@ class _FirstpageState extends State<Firstpage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.orange,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.orange[400],
+          titleTextStyle: GoogleFonts.poppins(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          ),
+          iconTheme: IconThemeData(color: Colors.white),
+        ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: Colors.orange[400],
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white.withOpacity(0.6),
+          showUnselectedLabels: true,
+        ),
+      ),
       home: SafeArea(
         child: Scaffold(
           appBar: AppBar(
-            leading: const Icon(Icons.menu, color: Colors.black),
+            leading: const Icon(Icons.menu),
             actions: const [
-              Icon(Icons.favorite, color: Colors.black),
+              Icon(Icons.favorite),
               SizedBox(width: 10),
-              Icon(Icons.notifications, color: Colors.black),
+              Icon(Icons.notifications),
               SizedBox(width: 10),
-              Icon(Icons.shopping_cart, color: Colors.black),
+              Icon(Icons.shopping_cart),
               SizedBox(width: 10),
             ],
             title: Text(
               "Shopify",
-              style: GoogleFonts.poppins(color: Colors.black, fontSize: 20),
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
             ),
-            backgroundColor: Colors.grey.shade300,
             centerTitle: true,
           ),
           bottomNavigationBar: BottomNavigationBar(

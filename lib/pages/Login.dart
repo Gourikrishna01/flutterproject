@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:project/pages/FirstPage.dart';
+
 import 'package:project/pages/Signup.dart';
 
 class Login extends StatefulWidget {
@@ -137,23 +139,36 @@ class _LoginState extends State<Login> {
                             style: TextStyle(color: Colors.grey),
                           ),
                           const SizedBox(height: 30),
-                          Container(
-                            height: 50,
-                            margin: const EdgeInsets.symmetric(horizontal: 50),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.deepOrange,
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Login",
-                                style: GoogleFonts.poppins(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Firstpage(),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              height: 50,
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 50,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Colors.deepOrange,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "Login",
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
+
                           const SizedBox(height: 20),
                           const Text(
                             "OR",

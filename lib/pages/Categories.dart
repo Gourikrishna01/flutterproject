@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project/pages/Details.dart';
-import 'package:project/pages/Home.dart'; // Make sure this exists
+import 'package:project/pages/Home.dart';
 
 class Categories extends StatefulWidget {
   const Categories({super.key});
@@ -13,66 +13,81 @@ class Categories extends StatefulWidget {
 class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Category Title
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Text(
-                  "Categories",
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-
-              // Categories Grid
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  shrinkWrap: true,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: [
-                    _buildCategoryCard(Icons.category, "Category"),
-                    _buildCategoryCard(Icons.woman, "Women"),
-                    _buildCategoryCard(Icons.man, "Men"),
-                    _buildCategoryCard(Icons.child_care, "Kids"),
-                    _buildCategoryCard(Icons.brush, "Beauty"),
-                  ],
-                ),
-              ),
-            ],
+    return Scaffold(
+      backgroundColor: Colors.orange[50],
+      appBar: AppBar(
+        title: Text(
+          "Categories",
+          style: GoogleFonts.poppins(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
+        ),
+        backgroundColor: Colors.orange[400],
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Categories Grid
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: GridView.count(
+                crossAxisCount: 2,
+                shrinkWrap: true,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  _buildCategoryCard(
+                    Icons.category,
+                    "All Products",
+                    Colors.orange[600]!,
+                  ),
+                  _buildCategoryCard(Icons.woman, "Women", Colors.orange[500]!),
+                  _buildCategoryCard(Icons.man, "Men", Colors.orange[500]!),
+                  _buildCategoryCard(
+                    Icons.child_care,
+                    "Kids",
+                    Colors.orange[500]!,
+                  ),
+                  _buildCategoryCard(
+                    Icons.brush,
+                    "Beauty",
+                    Colors.orange[500]!,
+                  ),
+                  _buildCategoryCard(
+                    Icons.shopping_bag,
+                    "Accessories",
+                    Colors.orange[500]!,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 
-  // Helper method for category cards
-  Widget _buildCategoryCard(IconData icon, String label) {
+  Widget _buildCategoryCard(IconData icon, String label, Color iconColor) {
     return GestureDetector(
       onTap: () {
         Widget targetPage;
 
         switch (label) {
-          case "Category":
+          case "All Products":
             targetPage = const Details();
             break;
           case "Women":
           case "Men":
           case "Kids":
           case "Beauty":
-            targetPage =
-                const Home(); // Replace with appropriate pages if needed
+          case "Accessories":
+            targetPage = const Home();
             break;
           default:
             targetPage = const Scaffold(
@@ -87,18 +102,26 @@ class _CategoriesState extends State<Categories> {
       },
       child: Card(
         elevation: 4,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(11)),
-        color: Colors.grey.shade100,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        color: Colors.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 30, color: Colors.purple),
-            const SizedBox(height: 8),
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.orange[50],
+                shape: BoxShape.circle,
+              ),
+              child: Icon(icon, size: 30, color: iconColor),
+            ),
+            const SizedBox(height: 12),
             Text(
               label,
               style: GoogleFonts.poppins(
                 fontSize: 14,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w600,
+                color: Colors.orange[800],
               ),
             ),
           ],
